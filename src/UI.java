@@ -16,10 +16,10 @@ public class UI {
 			  return icon;
 		}
 		myUI(){
-			setSize(2200,1300);
+			setSize(1200,700);
 			setDefaultLookAndFeelDecorated(true);
 			setResizable(false);
-			icon1=getImageIcon("Map.jpg", 1300, 1300);
+			icon1=getImageIcon("Map.jpg", 700, 700);
 			label.setIcon(icon1);
 			panel.add(label);
 			add(panel);
