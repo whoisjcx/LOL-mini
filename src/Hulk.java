@@ -2,8 +2,8 @@ import java.util.*;
 
 import javax.swing.*;
 
-public class DocYang extends Hero{
-	public DocYang(){
+public class Hulk extends Hero{
+	public Hulk(){
 		name="Doctor Yang";
 		hp=500;
 		maxhp=500;
@@ -17,12 +17,13 @@ public class DocYang extends Hero{
 		Icon=new ImageIcon("");
 		item=new int[6];
 	}
-
-	public void skill(Hero h){
-		h.hp-=atk*2;
-		judgedied(h);
+	public void skill(ArrayList<Hero> a){
+		for(int i=0;i<a.size();++i){
+			if(Math.abs(x-a.get(i).x)+Math.abs(y-a.get(i).y)<=2){
+				a.get(i).hp-=(atk/2);
+			}
+		}
 	}
-	
 	@Override
 	public void word(){
 		System.out.println("你需要电疗一下");

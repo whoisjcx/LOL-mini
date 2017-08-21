@@ -1,15 +1,9 @@
 
 public class HeroFactory {
 	public Hero getHero(String name){
-		if(name.equalsIgnoreCase("DocYang")){
-			return new DocYang();
+		if(name.equalsIgnoreCase("Hulk")){
+			return new Hulk();
 		}
-		if(name.equalsIgnoreCase("Garen")){
-			return new Garen();
-		}
-		if(name.equalsIgnoreCase("")){
-			return new ;
-		}
-		if(name.equalsIgnoreCase(""))
+		else return null;
 	}
 }
