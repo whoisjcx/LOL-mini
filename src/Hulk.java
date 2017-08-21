@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Hulk extends Hero{
 	public Hulk(){
-		name="Doctor Yang";
+		name="hulk";
 		hp=500;
 		maxhp=500;
 		atk=50;
@@ -14,7 +14,7 @@ public class Hulk extends Hero{
 		cd2=2;
 		re=-1;
 		step=1;
-		Icon=new ImageIcon("");
+		Icon=new ImageIcon("hulk.jpg");
 		item=new int[6];
 	}
 	public void skill(ArrayList<Hero> a){

@@ -5,8 +5,8 @@ public class Player {
 	public int p;	//p1»¹ÊÇp2
 	public int money;
 	public int x,y;
-	public ArrayList<Hero> heros;
-	public ArrayList<Item> items;
+	public ArrayList<Hero> heros=new ArrayList<Hero>();
+	public ArrayList<Item> items=new ArrayList<Item>();
 	HeroFactory hf;
 	public Player(String[] s,int a){
 		for(int i=0;i<s.length;++i){

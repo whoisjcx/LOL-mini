@@ -1,28 +1,44 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 public class UI {
 	static JButton bt[][]=new JButton[6][6];
-	static class myUI extends JFrame{
-		ImageIcon icon1= new ImageIcon("Map.jpg");
-		JLabel label= new JLabel();
-		JPanel panel= new JPanel();
-		JLabel money2= new JLabel();
-		JLabel money1= new JLabel();
-		JLabel hp2= new JLabel();
-		JLabel hp1= new JLabel();
-		public  ImageIcon getImageIcon(String path, int width, int height) {
-			  if (width == 0 || height == 0) {
-			   return new ImageIcon(this.getClass().getResource(path));
-			  }
-			  ImageIcon icon = new ImageIcon(path);
-			  icon.setImage(icon.getImage().getScaledInstance(width, height,Image.SCALE_DEFAULT));
-			  return icon;
+	static ImageIcon icon1= new ImageIcon("Map.jpg");
+	static JLabel label= new JLabel();
+	static JPanel panel= new JPanel();
+	static JLabel money2= new JLabel();
+	static JLabel money1= new JLabel();
+	static JLabel hp2= new JLabel();
+	static JLabel hp1= new JLabel();
+	public static  ImageIcon getImageIcon(String path, int width, int height) {
+		  ImageIcon icon = new ImageIcon(path);
+		  icon.setImage(icon.getImage().getScaledInstance(width, height,Image.SCALE_DEFAULT));
+		  return icon;
+	}
+	class play extends Thread{
+		public void run(){
+			while(true){
+				
+			}
 		}
+	}
+	static Player P1,P2;
+	static class myUI extends JFrame{
 		myUI(){
+			String S1[]=new String[3];
+			S1[0]="Hulk";
+			S1[1]="Hulk";
+			S1[2]="Hulk";
+			P1=new Player(S1,0);
+			String S2[]=new String[3];
+			S2[0]="Hulk";
+			S2[1]="Hulk";
+			S2[2]="Hulk";
+			P2=new Player(S2,1);
 			setSize(1200,750);
 			setResizable(false);
 			setLayout(null);
@@ -31,16 +47,33 @@ public class UI {
 			label.setIcon(icon1);
 			//panel.add(label);
 			getLayeredPane().add(label,new Integer(Integer.MIN_VALUE)); 
-			JPanel jj=(JPanel)getContentPane();  
-	        jj.setOpaque(false);  
+			label.setBounds(250, 0, 700, 700);
+			 
 			//add(label);
 	        hp1.setText("HP:2000");
 	        hp2.setText("HP:2000");
+	        money1.setText("MONEY:1000");
+	        money2.setText("MONEY:1000");
+	        hp1.setBounds(0,0, 100, 20);
+	        hp2.setBounds(950,0, 100, 20);
+	        money1.setBounds(0,20, 200, 20);
+	        money2.setBounds(950,20, 200, 20);
+	        
+	        ImageIcon hi11=getImageIcon("hulk.jpg",140/2,140/3);
+	        System.out.println(P1.heros.get(0).name+".jpg");
+	        JLabel hj1=new JLabel();
+	        hj1.setIcon(hi11);
+	        getLayeredPane().add(hj1,new Integer(Integer.MIN_VALUE)); 
+	        hj1.setBounds(40,40,140/2,140/3);
+	        
+	        
 	        panel.add(hp1);
 	        panel.add(hp2);
+	        panel.add(money1);
+	        panel.add(money2);
 			panel.setOpaque(false);
 			panel.setBounds(0, 0, 1200, 700);
-			label.setBounds(250, 0, 700, 700);
+			
 			for(int i=1;i<=5;i++)for(int j=1;j<=5;j++)
 				bt[i][j]=new JButton();
 			for(int i=1;i<=5;i++)for(int j=1;j<=5;j++)
@@ -185,6 +218,8 @@ public class UI {
 					System.out.println("5  5");
 				}
 			});
+			JPanel jj=(JPanel)getContentPane();  
+	        jj.setOpaque(false); 
 			add(panel);
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 		}
