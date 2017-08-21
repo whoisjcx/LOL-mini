@@ -25,11 +25,6 @@ public class Reporter extends Hero{
 		System.out.println("你能跟的上我的思必得吗？");
 	}
 	@Override
-	public void attackHero(Hero h){
-		h.hp-=atk;
-		judgedied(h);
-	}
-	@Override
 	public void attackTower(Map m,int x,int y){
 		m.field[x][y]-=atk;
 		if(m.field[x][y]<0) m.field[x][y]=0;

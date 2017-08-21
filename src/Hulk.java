@@ -17,21 +17,19 @@ public class Hulk extends Hero{
 		Icon=new ImageIcon("hulk.jpg");
 		item=new int[6];
 	}
-	public void skill(ArrayList<Hero> a){
+	public int skill(ArrayList<Hero> a){
+		int res=0;
 		for(int i=0;i<a.size();++i){
 			if(Math.abs(x-a.get(i).x)+Math.abs(y-a.get(i).y)<=2){
 				a.get(i).hp-=(atk/2);
+				res+=judgedied(a.get(i));
 			}
 		}
+		return res;
 	}
 	@Override
 	public void word(){
 		System.out.println("RUAAAAA!!!");
-	}
-	@Override
-	public void attackHero(Hero h){
-		h.hp-=atk;
-		judgedied(h);
 	}
 	@Override
 	public void attackTower(Map m,int x,int y){

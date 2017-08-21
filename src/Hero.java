@@ -14,13 +14,18 @@ public abstract class Hero {
 	int item[];
 	ImageIcon Icon;
 	public void word(){};
-	public void attackHero(Hero h){};
+	public int attackHero(Hero h){
+		h.hp-=atk;
+		return judgedied(h);
+	};
 	public void attackTower(Map m,int x,int y){};
-	public void judgedied(Hero h){
+	public int judgedied(Hero h){
 		if(h.hp<=0){
 			h.hp=0;
 			h.re=3;
+			return 1;
 		}
+		return 0;
 	}
 	public void revive(){
 		re--;
