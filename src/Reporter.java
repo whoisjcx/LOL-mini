@@ -5,13 +5,12 @@ import javax.swing.ImageIcon;
 public class Reporter extends Hero{
 	public Reporter(){
 		name="Reporter";
-		hp=500;
-		maxhp=500;
-		atk=50;
+		hp=700;
+		maxhp=700;
+		atk=60;
 		x=0;
 		y=0;
-		cd1=2;
-		cd2=2;
+		cd=2;
 		re=-1;
 		step=1;
 		Icon=new ImageIcon("Reperter.jpg");

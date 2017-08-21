@@ -7,16 +7,15 @@ public class DocYang extends Hero{
 		name="DocYang";
 		hp=500;
 		maxhp=500;
-		atk=50;
+		atk=90;
 		x=0;
 		y=0;
-		cd1=2;
-		cd2=2;
+		cd=3;
 		re=-1;
 		step=1;
 		Icon=new ImageIcon("DocYang.jpg");
 		item=new int[6];
-		skillname="…¡µÁ¡¥";
+		skillname="µÁ—€±∆»À";
 	}
 
 	public int skill(Hero h){

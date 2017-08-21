@@ -7,8 +7,7 @@ public abstract class Hero {
 	public int atk;
 	public int x;
 	public int y;
-	public int cd1;
-	public int cd2;
+	public int cd;
 	public int re;
 	public int step;
 	public String skillname;

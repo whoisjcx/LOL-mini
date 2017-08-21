@@ -1,27 +1,30 @@
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 
-public class Garen extends Hero{
-	public Garen(){
-		name="Garen";
-		hp=600;
-		maxhp=600;
+public class Afu extends Hero{
+	public Afu(){
+		name="Afu";
+		hp=800;
+		maxhp=800;
 		atk=60;
 		x=0;
 		y=0;
-		cd=3;
+		cd=4;
 		re=-1;
 		step=1;
-		Icon=new ImageIcon("Garen.jpg");
+		Icon=new ImageIcon("Afu.jpg");
 		item=new int[6];
-		skillname="´ó±¦½£";
+		skillname="ÎÚÑ»×ø·É»ú";
 	}
 	public int skill(Hero h){
-		h.hp-=atk+(h.maxhp-h.hp)*0.4;
+		h.hp-=atk;
+		h.step=-2;
 		return judgedied(h);
 	}
 	@Override
 	public void word(){
-		System.out.println("µÂÂêÎ÷ÑÇ£¡");
+		System.out.println("¶ñ»¢ÇîÍ¾À§Ð¡Ñò£¡");
 	}
 	@Override
 	public void attackTower(Map m,int x,int y){

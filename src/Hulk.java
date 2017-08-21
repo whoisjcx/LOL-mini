@@ -5,13 +5,12 @@ import javax.swing.*;
 public class Hulk extends Hero{
 	public Hulk(){
 		name="hulk";
-		hp=500;
-		maxhp=500;
+		hp=800;
+		maxhp=800;
 		atk=50;
 		x=0;
 		y=0;
-		cd1=2;
-		cd2=2;
+		cd=3;
 		re=-1;
 		step=1;
 		Icon=new ImageIcon("hulk.jpg");
