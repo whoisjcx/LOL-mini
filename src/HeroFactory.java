@@ -4,6 +4,9 @@ public class HeroFactory {
 		if(name.equalsIgnoreCase("Hulk")){
 			return new Hulk();
 		}
+		else if(name.equalsIgnoreCase("DocYang")){
+			return new DocYang();
+		}
 		else return null;
 	}
 }
