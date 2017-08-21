@@ -7,6 +7,9 @@ public class HeroFactory {
 		else if(name.equalsIgnoreCase("DocYang")){
 			return new DocYang();
 		}
+		else if(name.equals("Reporter")){
+			return new Reporter();
+		}
 		else return null;
 	}
 }
