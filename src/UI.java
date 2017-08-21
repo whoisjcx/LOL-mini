@@ -29,7 +29,7 @@ public class UI {
 			String S1[]=new String[3];
 			S1[0]="Hulk";
 			S1[1]="DocYang";
-			S1[2]="Hulk";
+			S1[2]="Reporter";
 			P1=new Player(S1,0);
 			String S2[]=new String[3];
 			S2[0]="Hulk";
