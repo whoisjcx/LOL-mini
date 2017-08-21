@@ -1,6 +1,6 @@
 
 public class HeroFactory {
-	public Hero getHero(String name){
+	public static Hero getHero(String name){
 		if(name.equalsIgnoreCase("Hulk")){
 			return new Hulk();
 		}
