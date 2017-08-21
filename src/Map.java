@@ -1,7 +1,7 @@
 
 public class Map {
 	
-	public Map getmap=new Map();
+	public static Map getmap=new Map();
 	
 	public int field[][]=new int[6][6];	//0为空地，正为塔血量，负为刷钱点
 	
@@ -20,7 +20,7 @@ public class Map {
 		field[3][4]=-100;
 	};
 	
-	public Map get(){
+	public static Map get(){
 		return getmap;
 	}
 	

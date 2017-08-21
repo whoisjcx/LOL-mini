@@ -26,7 +26,7 @@ public class Hulk extends Hero{
 	}
 	@Override
 	public void word(){
-		System.out.println("你需要电疗一下");
+		System.out.println("RUAAAAA!!!");
 	}
 	@Override
 	public void attackHero(Hero h){
