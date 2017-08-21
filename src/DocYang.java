@@ -16,6 +16,7 @@ public class DocYang extends Hero{
 		step=1;
 		Icon=new ImageIcon("DocYang.jpg");
 		item=new int[6];
+		skillname="…¡µÁ¡¥";
 	}
 
 	public int skill(Hero h){

@@ -14,6 +14,7 @@ public class Garen extends Hero{
 		step=1;
 		Icon=new ImageIcon("Garen.jpg");
 		item=new int[6];
+		skillname="´ó±¦½£";
 	}
 	public int skill(Hero h){
 		h.hp-=atk+(h.maxhp-h.hp)*0.4;

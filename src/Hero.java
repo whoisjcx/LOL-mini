@@ -11,6 +11,7 @@ public abstract class Hero {
 	public int cd2;
 	public int re;
 	public int step;
+	public String skillname;
 	int item[];
 	ImageIcon Icon;
 	public void word(){};

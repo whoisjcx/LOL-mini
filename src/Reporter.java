@@ -16,6 +16,7 @@ public class Reporter extends Hero{
 		step=1;
 		Icon=new ImageIcon("Reperter.jpg");
 		item=new int[6];
+		skillname="ÄîÊ«¹¥»÷";
 	}
 	public void skill(){
 		step+=2;

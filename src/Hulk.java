@@ -16,6 +16,7 @@ public class Hulk extends Hero{
 		step=1;
 		Icon=new ImageIcon("hulk.jpg");
 		item=new int[6];
+		skillname="Rua!";
 	}
 	public int skill(ArrayList<Hero> a){
 		int res=0;
