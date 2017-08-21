@@ -14,6 +14,8 @@ public class UI {
 	static JLabel money1= new JLabel();
 	static JLabel hp2= new JLabel();
 	static JLabel hp1= new JLabel();
+	static JLabel hj1= new JLabel();
+	static ImageIcon hi11;
 	public static  ImageIcon getImageIcon(String path, int width, int height) {
 		  ImageIcon icon = new ImageIcon(path);
 		  icon.setImage(icon.getImage().getScaledInstance(width, height,Image.SCALE_DEFAULT));
@@ -59,11 +61,12 @@ public class UI {
 	        money1.setBounds(0,20, 200, 20);
 	        money2.setBounds(950,20, 200, 20);
 	        
-	        ImageIcon hi11=getImageIcon("hulk.jpg",140/2,140/3);
+	        hi11=getImageIcon("hulk.jpg",140/2,140/3);
 	        System.out.println(P1.heros.get(0).name+".jpg");
-	        JLabel hj1=new JLabel();
+	        hj1=new JLabel();
 	        hj1.setIcon(hi11);
-	        getLayeredPane().add(hj1,new Integer(Integer.MIN_VALUE)); 
+	        panel.add(hj1);
+	        //getLayeredPane().add(hj1,new Integer(Integer.MIN_VALUE)); 
 	        hj1.setBounds(40,40,140/2,140/3);
 	        
 	        
@@ -88,6 +91,7 @@ public class UI {
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  1");
 					bt[1][1].setBorder(BorderFactory.createLineBorder(Color.red,5));
+					hj1.setBounds(250, 0,140/2,140/3);
 				}
 			});
 			bt[1][2].addActionListener(new ActionListener(){
