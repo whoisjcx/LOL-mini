@@ -14,9 +14,10 @@ public class UI {
 	static JLabel money1= new JLabel();
 	static JLabel hp2= new JLabel();
 	static JLabel hp1= new JLabel();
-	static JLabel hj1= new JLabel();
-	static ImageIcon hi11;
-	static Hero now;
+	static JLabel hj[]= new JLabel[6];
+	static JLabel ph[]= new JLabel[6];
+	static ImageIcon hi[]=new ImageIcon[6];
+	static JLabel now;
 	public static  ImageIcon getImageIcon(String path, int width, int height) {
 		  ImageIcon icon = new ImageIcon(path);
 		  icon.setImage(icon.getImage().getScaledInstance(width, height,Image.SCALE_DEFAULT));
@@ -27,7 +28,7 @@ public class UI {
 		myUI(){
 			String S1[]=new String[3];
 			S1[0]="Hulk";
-			S1[1]="Hulk";
+			S1[1]="DocYang";
 			S1[2]="Hulk";
 			P1=new Player(S1,0);
 			String S2[]=new String[3];
@@ -54,16 +55,24 @@ public class UI {
 	        hp2.setBounds(950,0, 100, 20);
 	        money1.setBounds(0,20, 200, 20);
 	        money2.setBounds(950,20, 200, 20);
-	        
-	        hi11=getImageIcon("hulk.jpg",140/2,140/3);
-	        now=P1.heros.get(0);
-	        System.out.println(now.name+".jpg");
-	        hj1=new JLabel();
-	        hj1.setIcon(hi11);
-	        panel.add(hj1);
+	        for(int i=0;i<3;i++)
+	        	hi[i]=getImageIcon(P1.heros.get(i).name+".jpg",140/2,140/3);
+	        for(int i=0;i<3;i++)
+	        	hi[3+i]=getImageIcon(P2.heros.get(i).name+".jpg",140/2,140/3);
+	        //now=P1.heros.get(0);
+	       // System.out.println(now.name+".jpg");
+	        for(int i=0;i<6;i++)
+	        	hj[i]=new JLabel();
+	        for(int i=0;i<6;i++)
+	        	hj[i].setIcon(hi[i]);
+	        now=hj[0];
+	        for(int i=0;i<6;i++)
+	        	panel.add(hj[i]);
 	        //getLayeredPane().add(hj1,new Integer(Integer.MIN_VALUE)); 
-	        hj1.setBounds(250,140*4,140/2,140/3);
-	        
+	        for(int i=0;i<3;i++)
+	        	hj[i].setBounds(250,140*4+140/3*i,140/2,140/3);
+	        for(int i=0;i<3;i++)
+	        	hj[i+3].setBounds(250+140*4+140/2,0+140/3*i,140/2,140/3);
 	        
 	        panel.add(hp1);
 	        panel.add(hp2);
@@ -95,31 +104,31 @@ public class UI {
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  1");
 					//bt[1][1].setBorder(BorderFactory.createLineBorder(Color.red,5));
-					hj1.setBounds(250, 0,140/2,140/3);
+					now.setBounds(250, 0,140/2,140/3);
 				}
 			});
 			bt[1][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  2");
-					hj1.setBounds(250, 140*1,140/2,140/3);
+					now.setBounds(250, 140*1,140/2,140/3);
 				}
 			});
 			bt[1][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  3");
-					hj1.setBounds(250, 140*2,140/2,140/3);
+					now.setBounds(250, 140*2,140/2,140/3);
 				}
 			});
 			bt[1][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  4");
-					hj1.setBounds(250, 140*3,140/2,140/3);
+					now.setBounds(250, 140*3,140/2,140/3);
 				}
 			});
 			bt[1][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  5");
-					hj1.setBounds(250, 140*4,140/2,140/3);
+					now.setBounds(250, 140*4,140/2,140/3);
 				}
 			});
 			
@@ -127,32 +136,32 @@ public class UI {
 			bt[2][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  1");
-					hj1.setBounds(250+140*1, 140*0,140/2,140/3);
+					now.setBounds(250+140*1, 140*0,140/2,140/3);
 				}
 			});
 			bt[2][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  2");
-					hj1.setBounds(250+140*1, 140*1,140/2,140/3);
+					now.setBounds(250+140*1, 140*1,140/2,140/3);
 				}
 			});
 			bt[2][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  3");
-					hj1.setBounds(250+140*1, 140*2,140/2,140/3);
+					now.setBounds(250+140*1, 140*2,140/2,140/3);
 					//bt[1][1].setBorder(BorderFactory.createLineBorder(Color.red,5));
 				}
 			});
 			bt[2][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  4");
-					hj1.setBounds(250+140*1, 140*3,140/2,140/3);
+					now.setBounds(250+140*1, 140*3,140/2,140/3);
 				}
 			});
 			bt[2][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  5");
-					hj1.setBounds(250+140*1, 140*4,140/2,140/3);
+					now.setBounds(250+140*1, 140*4,140/2,140/3);
 				}
 			});
 			
@@ -160,31 +169,31 @@ public class UI {
 			bt[3][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  1");
-					hj1.setBounds(250+140*2, 140*0,140/2,140/3);
+					now.setBounds(250+140*2, 140*0,140/2,140/3);
 				}
 			});
 			bt[3][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  2");
-					hj1.setBounds(250+140*2, 140*1,140/2,140/3);
+					now.setBounds(250+140*2, 140*1,140/2,140/3);
 				}
 			});
 			bt[3][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  3");
-					hj1.setBounds(250+140*2, 140*2,140/2,140/3);
+					now.setBounds(250+140*2, 140*2,140/2,140/3);
 				}
 			});
 			bt[3][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  4");
-					hj1.setBounds(250+140*2, 140*3,140/2,140/3);
+					now.setBounds(250+140*2, 140*3,140/2,140/3);
 				}
 			});
 			bt[3][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  5");
-					hj1.setBounds(250+140*2, 140*4,140/2,140/3);
+					now.setBounds(250+140*2, 140*4,140/2,140/3);
 				}
 			});
 			
@@ -192,31 +201,31 @@ public class UI {
 			bt[4][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  1");
-					hj1.setBounds(250+140*3, 140*0,140/2,140/3);
+					now.setBounds(250+140*3, 140*0,140/2,140/3);
 				}
 			});
 			bt[4][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  2");
-					hj1.setBounds(250+140*3, 140*1,140/2,140/3);
+					now.setBounds(250+140*3, 140*1,140/2,140/3);
 				}
 			});
 			bt[4][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  3");
-					hj1.setBounds(250+140*3, 140*2,140/2,140/3);
+					now.setBounds(250+140*3, 140*2,140/2,140/3);
 				}
 			});
 			bt[4][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  4");
-					hj1.setBounds(250+140*3, 140*3,140/2,140/3);
+					now.setBounds(250+140*3, 140*3,140/2,140/3);
 				}
 			});
 			bt[4][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  5");
-					hj1.setBounds(250+140*3, 140*4,140/2,140/3);
+					now.setBounds(250+140*3, 140*4,140/2,140/3);
 				}
 			});
 			
@@ -224,31 +233,31 @@ public class UI {
 			bt[5][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  1");
-					hj1.setBounds(250+140*4, 140*0,140/2,140/3);
+					now.setBounds(250+140*4, 140*0,140/2,140/3);
 				}
 			});
 			bt[5][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  2");
-					hj1.setBounds(250+140*4, 140*1,140/2,140/3);
+					now.setBounds(250+140*4, 140*1,140/2,140/3);
 				}
 			});
 			bt[5][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  3");
-					hj1.setBounds(250+140*4, 140*2,140/2,140/3);
+					now.setBounds(250+140*4, 140*2,140/2,140/3);
 				}
 			});
 			bt[5][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  4");
-					hj1.setBounds(250+140*4, 140*3,140/2,140/3);
+					now.setBounds(250+140*4, 140*3,140/2,140/3);
 				}
 			});
 			bt[5][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  5");
-					hj1.setBounds(250+140*4, 140*4,140/2,140/3);
+					now.setBounds(250+140*4, 140*4,140/2,140/3);
 				}
 			});
 			JPanel jj=(JPanel)getContentPane();  

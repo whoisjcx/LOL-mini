@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class DocYang extends Hero{
 	public DocYang(){
-		name="Doctor Yang";
+		name="DocYang";
 		hp=500;
 		maxhp=500;
 		atk=50;
@@ -14,7 +14,7 @@ public class DocYang extends Hero{
 		cd2=2;
 		re=-1;
 		step=1;
-		Icon=new ImageIcon("");
+		Icon=new ImageIcon("DocYang.jpg");
 		item=new int[6];
 	}
 
