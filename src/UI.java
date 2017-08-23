@@ -17,6 +17,8 @@ public class UI {
 	static JLabel hj[]= new JLabel[6];
 	static JLabel ph[]= new JLabel[6];
 	static JLabel hhp[]= new JLabel[6];
+	static JLabel latk[]= new JLabel[6];
+	static JLabel lsp[]= new JLabel[6];
 	static JButton atk[]=new JButton[6];
 	static JButton sk[]=new JButton[6];
 	static JButton sw[]=new JButton[6];
@@ -24,6 +26,7 @@ public class UI {
 	static JButton ar[]=new JButton[6];
 	static ImageIcon hi[]=new ImageIcon[6];
 	static JLabel now;
+	static int nid;
 	public static  ImageIcon getImageIcon(String path, int width, int height) {
 		  ImageIcon icon = new ImageIcon(path);
 		  icon.setImage(icon.getImage().getScaledInstance(width, height,Image.SCALE_DEFAULT));
@@ -64,6 +67,10 @@ public class UI {
 	        for(int i=0;i<6;i++)
 	        	hhp[i]= new JLabel();
 	        for(int i=0;i<6;i++)
+	        	latk[i]= new JLabel();
+	        for(int i=0;i<6;i++)
+	        	lsp[i]= new JLabel();
+	        for(int i=0;i<6;i++)
 	        	sk[i]= new JButton("¼¼ÄÜ");
 	        for(int i=0;i<6;i++)
 	        	sw[i]= new JButton("ÎäÆ÷Éý¼¶");
@@ -85,6 +92,14 @@ public class UI {
 	        	sk[i].setText(P1.heros.get(i).skillname);
 	        for(int i=0;i<3;i++)
 	        	sk[3+i].setText(P2.heros.get(i).skillname);
+	        for(int i=0;i<3;i++)
+	        	latk[i].setText("ATK:"+String.valueOf(P1.heros.get(i).atk));
+	        for(int i=0;i<3;i++)
+	        	latk[3+i].setText("ATK"+String.valueOf(P2.heros.get(i).atk));
+	        for(int i=0;i<3;i++)
+	        	lsp[i].setText("SP:"+String.valueOf(P1.heros.get(i).step));
+	        for(int i=0;i<3;i++)
+	        	lsp[3+i].setText("SP:"+String.valueOf(P2.heros.get(i).step));
 	        //now=P1.heros.get(0);
 	       // System.out.println(now.name+".jpg");
 	        for(int i=0;i<6;i++)
@@ -96,6 +111,11 @@ public class UI {
 	        for(int i=0;i<6;i++)
 	        	ph[i].setIcon(hi[i]);
 	        now=hj[0];
+	        nid=0;
+	        for(int i=0;i<6;i++)
+	        	panel.add(lsp[i]);
+	        for(int i=0;i<6;i++)
+	        	panel.add(latk[i]);
 	        for(int i=0;i<6;i++)
 	        	panel.add(hj[i]);
 	        for(int i=0;i<6;i++)
@@ -145,9 +165,18 @@ public class UI {
 	        for(int i=0;i<3;i++)
 	        	ph[i+3].setBounds(200+140*5+140/2,50+i*200,140/2,140/3);
 	        for(int i=0;i<3;i++)
-	        	hhp[i].setBounds(20+140/2,50+i*200,80,20);
+	        	hhp[i].setBounds(20+140/2,50+i*200,80,15);
 	        for(int i=0;i<3;i++)
-	        	hhp[i+3].setBounds(200+140*5+140/2+140/2,50+i*200,80,20);
+	        	hhp[i+3].setBounds(200+140*5+140/2+140/2,50+i*200,80,15);
+	        
+	        for(int i=0;i<3;i++)
+	        	lsp[i].setBounds(20+140/2,50+i*200+15,80,15);
+	        for(int i=0;i<3;i++)
+	        	lsp[i+3].setBounds(200+140*5+140/2+140/2,50+i*200+15,80,15);
+	        for(int i=0;i<3;i++)
+	        	latk[i].setBounds(20+140/2,50+i*200+30,80,15);
+	        for(int i=0;i<3;i++)
+	        	latk[i+3].setBounds(200+140*5+140/2+140/2,50+i*200+30,80,15);
 	        
 	        
 	        panel.add(hp1);
@@ -180,31 +209,52 @@ public class UI {
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  1");
 					//bt[1][1].setBorder(BorderFactory.createLineBorder(Color.red,5));
-					now.setBounds(250, 0,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+p*140/2, 0+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
+			        //nid=0;
 				}
 			});
 			bt[1][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  2");
-					now.setBounds(250, 140*1,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[1][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  3");
-					now.setBounds(250, 140*2,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[1][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  4");
-					now.setBounds(250, 140*3,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[1][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("1  5");
-					now.setBounds(250, 140*4,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			
@@ -212,32 +262,52 @@ public class UI {
 			bt[2][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  1");
-					now.setBounds(250+140*1, 140*0,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*1+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[2][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  2");
-					now.setBounds(250+140*1, 140*1,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*1+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[2][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  3");
-					now.setBounds(250+140*1, 140*2,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*1+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
 					//bt[1][1].setBorder(BorderFactory.createLineBorder(Color.red,5));
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[2][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  4");
-					now.setBounds(250+140*1, 140*3,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*1+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[2][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("2  5");
-					now.setBounds(250+140*1, 140*4,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*1+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			
@@ -245,31 +315,51 @@ public class UI {
 			bt[3][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  1");
-					now.setBounds(250+140*2, 140*0,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*2+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[3][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  2");
-					now.setBounds(250+140*2, 140*1,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*2+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[3][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  3");
-					now.setBounds(250+140*2, 140*2,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*2+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[3][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  4");
-					now.setBounds(250+140*2, 140*3,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*2+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[3][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("3  5");
-					now.setBounds(250+140*2, 140*4,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*2+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			
@@ -277,31 +367,51 @@ public class UI {
 			bt[4][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  1");
-					now.setBounds(250+140*3, 140*0,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*3+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[4][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  2");
-					now.setBounds(250+140*3, 140*1,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*3+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[4][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  3");
-					now.setBounds(250+140*3, 140*2,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*3+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[4][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  4");
-					now.setBounds(250+140*3, 140*3,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*3+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[4][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("4  5");
-					now.setBounds(250+140*3, 140*4,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*3+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			
@@ -309,31 +419,51 @@ public class UI {
 			bt[5][1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  1");
-					now.setBounds(250+140*4, 140*0,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*4+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[5][2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  2");
-					now.setBounds(250+140*4, 140*1,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*4+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[5][3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  3");
-					now.setBounds(250+140*4, 140*2,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*4+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[5][4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  4");
-					now.setBounds(250+140*4, 140*3,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*4+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			bt[5][5].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){	
 					System.out.println("5  5");
-					now.setBounds(250+140*4, 140*4,140/2,140/3);
+					int p=0;
+					if(nid>=3) p=1 ;
+					now.setBounds(250+140*4+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
+					now=hj[(++nid)%6];
+					nid%=6;
 				}
 			});
 			JPanel jj=(JPanel)getContentPane();  
