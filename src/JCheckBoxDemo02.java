@@ -8,7 +8,8 @@ import java.awt.event.WindowEvent;
 import java.io.File;  
   
 import javax.swing.BorderFactory;  
-import javax.swing.ImageIcon;  
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;  
 import javax.swing.JFrame;  
 import javax.swing.JPanel;  
@@ -50,8 +51,8 @@ class MyCheckBox1 {
     private JCheckBox jcb5 = new JCheckBox("记者", getImageIcon(wrong, 100, 100));  
     private JCheckBox jcb6 = new JCheckBox("医生", getImageIcon(wrong, 100, 100));  
     private JPanel panel = new JPanel();// 定义一个面板  
-  
-    public MyCheckBox1() {  
+    private JButton jb= new JButton("选择完毕");  
+    public MyCheckBox1(){
         panel.setBorder(BorderFactory.createTitledBorder("请选择你的英雄"));// 定义一个边框的显示条  
         panel.setLayout(new GridLayout(1, 3));// 定义排版 1行3列  
         panel.add(this.jcb1);// 加入组件  
@@ -59,7 +60,8 @@ class MyCheckBox1 {
         panel.add(this.jcb3);// 加入组件  
         panel.add(this.jcb4);// 加入组件  
         panel.add(this.jcb5);// 加入组件  
-        panel.add(this.jcb6);// 加入组件  
+        panel.add(this.jcb6);// 加入组件 
+        panel.add(this.jb);// 加入组件
         jcb1.addItemListener(new MyItemListener("Garen.jpg"));// 加入监听  
         jcb2.addItemListener(new MyItemListener("Kongming.jpg"));// 加入监听  
         jcb3.addItemListener(new MyItemListener("hulk.jpg"));// 加入监听 
@@ -68,7 +70,8 @@ class MyCheckBox1 {
         jcb6.addItemListener(new MyItemListener("DocYang.jpg"));// 加入监听 
         container.add(panel);// 加入面板  
         this.frame.setSize(1000, 300);// 定义窗体大小  
-        this.frame.setVisible(true);// 显示窗体  
+        this.frame.setVisible(true);// 显示窗体 
+        this.frame.setResizable(false);
         this.frame.addWindowListener(new WindowAdapter() {// 加入事件监听  
             public void windowClosing(WindowEvent arg0)// 复写窗口关闭方法  
             {  
