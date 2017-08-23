@@ -8,7 +8,9 @@ import javax.swing.*;
 public class UI {
 	static JButton bt[][]=new JButton[6][6];
 	static ImageIcon icon1= new ImageIcon("Map.jpg");
+	static ImageIcon icon2= new ImageIcon("ok.jpg");
 	static JLabel label= new JLabel();
+	static JLabel ok= new JLabel();
 	static JPanel panel= new JPanel();
 	static JLabel money2= new JLabel();
 	static JLabel money1= new JLabel();
@@ -54,7 +56,8 @@ public class UI {
 			//panel.add(label);
 			getLayeredPane().add(label,new Integer(Integer.MIN_VALUE)); 
 			label.setBounds(250, 0, 700, 700);
-			 
+			icon2=getImageIcon("ok.jpg", 100, 50);
+			ok.setIcon(icon2);
 			//add(label);
 	        hp1.setText("HP:2000");
 	        hp2.setText("HP:2000");
@@ -145,11 +148,12 @@ public class UI {
 	        	sh[i].setBounds(20,50+i*200+140/3+100,80,50);
 	        for(int i=0;i<3;i++)
 	        	sh[i+3].setBounds(200+140*5+140/2,50+i*200+140/3+100,80,50);
-	        
 	        for(int i=0;i<3;i++)
 	        	atk[i].setBounds(20+80,50+i*200+140/3,100,50);
 	        for(int i=0;i<3;i++)
 	        	atk[i+3].setBounds(80+200+140*5+140/2,50+i*200+140/3,100,50);
+	        int p=0;
+	        ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 	        for(int i=0;i<3;i++)
 	        	sk[i].setBounds(80+20,50+i*200+140/3+100,100,50);
 	        for(int i=0;i<3;i++)
@@ -180,6 +184,7 @@ public class UI {
 	        
 	        
 	        panel.add(hp1);
+	        panel.add(ok);
 	        panel.add(hp2);
 	        panel.add(money1);
 	        panel.add(money2);
@@ -214,7 +219,11 @@ public class UI {
 					now.setBounds(250+p*140/2, 0+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
-			        //nid=0;
+					//50+i*200+140/3+50
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[1][2].addActionListener(new ActionListener(){
@@ -225,6 +234,10 @@ public class UI {
 					now.setBounds(250+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[1][3].addActionListener(new ActionListener(){
@@ -235,6 +248,10 @@ public class UI {
 					now.setBounds(250+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[1][4].addActionListener(new ActionListener(){
@@ -245,6 +262,10 @@ public class UI {
 					now.setBounds(250+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[1][5].addActionListener(new ActionListener(){
@@ -255,6 +276,10 @@ public class UI {
 					now.setBounds(250+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			
@@ -267,6 +292,10 @@ public class UI {
 					now.setBounds(250+140*1+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[2][2].addActionListener(new ActionListener(){
@@ -277,6 +306,10 @@ public class UI {
 					now.setBounds(250+140*1+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[2][3].addActionListener(new ActionListener(){
@@ -288,6 +321,10 @@ public class UI {
 					//bt[1][1].setBorder(BorderFactory.createLineBorder(Color.red,5));
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[2][4].addActionListener(new ActionListener(){
@@ -298,6 +335,10 @@ public class UI {
 					now.setBounds(250+140*1+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[2][5].addActionListener(new ActionListener(){
@@ -308,6 +349,10 @@ public class UI {
 					now.setBounds(250+140*1+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			
@@ -320,6 +365,10 @@ public class UI {
 					now.setBounds(250+140*2+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[3][2].addActionListener(new ActionListener(){
@@ -330,6 +379,10 @@ public class UI {
 					now.setBounds(250+140*2+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[3][3].addActionListener(new ActionListener(){
@@ -340,6 +393,10 @@ public class UI {
 					now.setBounds(250+140*2+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[3][4].addActionListener(new ActionListener(){
@@ -350,6 +407,10 @@ public class UI {
 					now.setBounds(250+140*2+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[3][5].addActionListener(new ActionListener(){
@@ -360,6 +421,10 @@ public class UI {
 					now.setBounds(250+140*2+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			
@@ -372,6 +437,10 @@ public class UI {
 					now.setBounds(250+140*3+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[4][2].addActionListener(new ActionListener(){
@@ -382,6 +451,10 @@ public class UI {
 					now.setBounds(250+140*3+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[4][3].addActionListener(new ActionListener(){
@@ -392,6 +465,10 @@ public class UI {
 					now.setBounds(250+140*3+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[4][4].addActionListener(new ActionListener(){
@@ -402,6 +479,10 @@ public class UI {
 					now.setBounds(250+140*3+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[4][5].addActionListener(new ActionListener(){
@@ -412,6 +493,10 @@ public class UI {
 					now.setBounds(250+140*3+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			
@@ -424,6 +509,10 @@ public class UI {
 					now.setBounds(250+140*4+p*140/2, 140*0+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[5][2].addActionListener(new ActionListener(){
@@ -434,6 +523,10 @@ public class UI {
 					now.setBounds(250+140*4+p*140/2, 140*1+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[5][3].addActionListener(new ActionListener(){
@@ -444,6 +537,10 @@ public class UI {
 					now.setBounds(250+140*4+p*140/2, 140*2+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[5][4].addActionListener(new ActionListener(){
@@ -454,6 +551,10 @@ public class UI {
 					now.setBounds(250+140*4+p*140/2, 140*3+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			bt[5][5].addActionListener(new ActionListener(){
@@ -464,6 +565,10 @@ public class UI {
 					now.setBounds(250+140*4+p*140/2, 140*4+(nid%3)*140/3,140/2,140/3);
 					now=hj[(++nid)%6];
 					nid%=6;
+					p=0;
+					if(nid>=3) p=1 ;
+					System.out.println(nid);
+					ok.setBounds(((p+1)%2)*20+80+p*(200+140*5+140/2),50+(nid%3)*200+50+140/3,100,50);
 				}
 			});
 			JPanel jj=(JPanel)getContentPane();  
