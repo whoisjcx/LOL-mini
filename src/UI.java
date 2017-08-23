@@ -16,6 +16,12 @@ public class UI {
 	static JLabel hp1= new JLabel();
 	static JLabel hj[]= new JLabel[6];
 	static JLabel ph[]= new JLabel[6];
+	static JLabel hhp[]= new JLabel[6];
+	static JButton atk[]=new JButton[6];
+	static JButton sk[]=new JButton[6];
+	static JButton sw[]=new JButton[6];
+	static JButton sh[]=new JButton[6];
+	static JButton ar[]=new JButton[6];
 	static ImageIcon hi[]=new ImageIcon[6];
 	static JLabel now;
 	public static  ImageIcon getImageIcon(String path, int width, int height) {
@@ -32,9 +38,9 @@ public class UI {
 			S1[2]="Reporter";
 			P1=new Player(S1,0);
 			String S2[]=new String[3];
-			S2[0]="Hulk";
-			S2[1]="Hulk";
-			S2[2]="Hulk";
+			S2[0]="Garen";
+			S2[1]="Afu";
+			S2[2]="Kongming";
 			P2=new Player(S2,1);
 			setSize(1200,750);
 			setResizable(false);
@@ -55,24 +61,94 @@ public class UI {
 	        hp2.setBounds(950,0, 100, 20);
 	        money1.setBounds(0,20, 200, 20);
 	        money2.setBounds(950,20, 200, 20);
+	        for(int i=0;i<6;i++)
+	        	hhp[i]= new JLabel();
+	        for(int i=0;i<6;i++)
+	        	sk[i]= new JButton("技能");
+	        for(int i=0;i<6;i++)
+	        	sw[i]= new JButton("武器升级");
+	        for(int i=0;i<6;i++)
+	        	atk[i]= new JButton("攻击");
+	        for(int i=0;i<6;i++)
+	        	sh[i]= new JButton("护盾升级");
+	        for(int i=0;i<6;i++)
+	        	ar[i]= new JButton("装甲升级");
 	        for(int i=0;i<3;i++)
 	        	hi[i]=getImageIcon(P1.heros.get(i).name+".jpg",140/2,140/3);
 	        for(int i=0;i<3;i++)
 	        	hi[3+i]=getImageIcon(P2.heros.get(i).name+".jpg",140/2,140/3);
+	        for(int i=0;i<3;i++)
+	        	hhp[i].setText("HP:"+String.valueOf(P1.heros.get(i).hp)+"/"+String.valueOf(P1.heros.get(i).hp));
+	        for(int i=0;i<3;i++)
+	        	hhp[3+i].setText("HP:"+String.valueOf(P2.heros.get(i).hp)+"/"+String.valueOf(P2.heros.get(i).hp));
+	        for(int i=0;i<3;i++)
+	        	sk[i].setText(P1.heros.get(i).skillname);
+	        for(int i=0;i<3;i++)
+	        	sk[3+i].setText(P2.heros.get(i).skillname);
 	        //now=P1.heros.get(0);
 	       // System.out.println(now.name+".jpg");
 	        for(int i=0;i<6;i++)
 	        	hj[i]=new JLabel();
 	        for(int i=0;i<6;i++)
+	        	ph[i]=new JLabel();
+	        for(int i=0;i<6;i++)
 	        	hj[i].setIcon(hi[i]);
+	        for(int i=0;i<6;i++)
+	        	ph[i].setIcon(hi[i]);
 	        now=hj[0];
 	        for(int i=0;i<6;i++)
 	        	panel.add(hj[i]);
-	        //getLayeredPane().add(hj1,new Integer(Integer.MIN_VALUE)); 
+	        for(int i=0;i<6;i++)
+	        	panel.add(ph[i]);
+	        for(int i=0;i<6;i++)
+	        	panel.add(hhp[i]);
+	        //getLayeredPane().add(hj1,new Integer(Integer.MIN_VALUE));
+	        for(int i=0;i<6;i++)
+	        	panel.add(sk[i]);
+	        for(int i=0;i<6;i++)
+	        	panel.add(sw[i]);
+	        for(int i=0;i<6;i++)
+	        	panel.add(sh[i]);
+	        for(int i=0;i<6;i++)
+	        	panel.add(atk[i]);
+	        for(int i=0;i<6;i++)
+	        	panel.add(ar[i]);
+	        for(int i=0;i<3;i++)
+	        	ar[i].setBounds(20,50+i*200+140/3,80,50);
+	        for(int i=0;i<3;i++)
+	        	ar[i+3].setBounds(200+140*5+140/2,50+i*200+140/3,80,50);
+	        for(int i=0;i<3;i++)
+	        	sw[i].setBounds(20,50+i*200+140/3+50,80,50);
+	        for(int i=0;i<3;i++)
+	        	sw[i+3].setBounds(200+140*5+140/2,50+i*200+140/3+50,80,50);
+	        for(int i=0;i<3;i++)
+	        	sh[i].setBounds(20,50+i*200+140/3+100,80,50);
+	        for(int i=0;i<3;i++)
+	        	sh[i+3].setBounds(200+140*5+140/2,50+i*200+140/3+100,80,50);
+	        
+	        for(int i=0;i<3;i++)
+	        	atk[i].setBounds(20+80,50+i*200+140/3,100,50);
+	        for(int i=0;i<3;i++)
+	        	atk[i+3].setBounds(80+200+140*5+140/2,50+i*200+140/3,100,50);
+	        for(int i=0;i<3;i++)
+	        	sk[i].setBounds(80+20,50+i*200+140/3+100,100,50);
+	        for(int i=0;i<3;i++)
+	        	sk[i+3].setBounds(80+200+140*5+140/2,50+i*200+140/3+100,100,50);
+	        
+	        
 	        for(int i=0;i<3;i++)
 	        	hj[i].setBounds(250,140*4+140/3*i,140/2,140/3);
 	        for(int i=0;i<3;i++)
 	        	hj[i+3].setBounds(250+140*4+140/2,0+140/3*i,140/2,140/3);
+	        for(int i=0;i<3;i++)
+	        	ph[i].setBounds(20,50+i*200,140/2,140/3);
+	        for(int i=0;i<3;i++)
+	        	ph[i+3].setBounds(200+140*5+140/2,50+i*200,140/2,140/3);
+	        for(int i=0;i<3;i++)
+	        	hhp[i].setBounds(20+140/2,50+i*200,80,20);
+	        for(int i=0;i<3;i++)
+	        	hhp[i+3].setBounds(200+140*5+140/2+140/2,50+i*200,80,20);
+	        
 	        
 	        panel.add(hp1);
 	        panel.add(hp2);
