@@ -36,6 +36,11 @@ public class UI {
 	}
 	static Player P1,P2;
 	static class myUI extends JFrame{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		myUI(){
 			String S1[]=new String[3];
 			S1[0]="Hulk";
